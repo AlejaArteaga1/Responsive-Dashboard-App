@@ -15,48 +15,60 @@ The breakpoint strategy follows mobile-first design principles with carefully se
 - Tablets: 500-768px - 3 column layout
 - Large tablets: > 768px - 4 column layout
 **Design Decisions:**
-[Explain why you chose these specific breakpoints]
+These breakpoints were chosen based on statistical analysis of common device resolutions. Small phones target devices like iPhone SE, medium phones cover standard Android devices, large phones accommodate phablets, and tablet breakpoints align with iPad Mini and standard iPad dimensions. This approach ensures content remains readable and properly structured across all device categories.
 ### Grid System Implementation
-[Document how your responsive grid works]
+The responsive grid system dynamically adjusts column counts based on device type and orientation, providing optimal content density for each screen size.
 **Column Calculation Logic:**
-[Explain the getGridColumns() function logic]
+The getGridColumns() function analyzes screen width against defined breakpoints and returns appropriate column counts:
+
+-Small devices: Single column for focused content consumption
+
+-Medium/Large phones: Two columns for balanced information density
+
+-Tablets: Three columns to utilize additional screen space
+
+-Large tablets: Four columns for maximum content visibility
 **Orientation Handling:**
-[Describe how orientation changes affect layout]
+Orientation changes trigger the updateScreenData() function which recalculates screen dimensions and propagates changes through the component tree. The listenForOrientationChange() method ensures real-time layout updates.
 ### Typography Scaling
-[Document font size scaling approach]
+The typography system uses proportional scaling to maintain readability across different screen densities.
 **Scaling Formula:**
-[Explain the rf() responsive font function]
+The rf() function calculates: size * (screenWidth / 320) with platform-specific adjustments (-2px on Android)
 **Typography Scale:**
-- h1: [size]pt
-- h2: [size]pt
-- h3: [size]pt
-- body: [size]pt
-- caption: [size]pt
+- h1: 28pt
+- h2: 24pt
+- h3: 20pt
+- body: 16pt
+- caption: 14pt
 ### Spacing System
-[Document spacing scale and usage]
+The spacing system uses percentage-based calculations for consistent visual rhythm across devices.
 **Spacing Values:**
-- xs: [value]
-- sm: [value]
-- md: [value]
-- lg: [value]
-- xl: [value]
+- xs: 1% of screen width
+- sm: 2% of screen width
+- md: 4% of screen width
+- lg: 6% of screen width
+- xl: 8% of screen width
 ## Platform-Specific Implementations
 ### iOS Specific Styling
-[List iOS-specific styles used]
-- Shadow implementation using shadowColor, shadowOffset, shadowOpacity
-- Border radius preferences
-- Status bar height adjustments
-- [Other iOS-specific considerations]
+-Shadow implementation using shadowColor, shadowOffset, shadowOpacity, shadowRadius
+
+-Rounded corners with subtle border radius (8-12px)
+
+-Status bar height adjustments for notch devices
+
+-Native iOS navigation patterns and interaction feedback
 ### Android Specific Styling
-[List Android-specific styles used]
-- Elevation for shadows
-- Material Design color scheme
-- Status bar translucent handling
-- [Other Android-specific considerations]
----
+-Elevation-based shadows for Material Design compliance
+
+-Material Design color scheme and typography scales
+
+-Status bar translucent handling for immersive experience
+
+-Ripple effect patterns for touch interactions
+
 ## Component Architecture
 ### Widget System Design
-[Explain the BaseWidget pattern and reusability]
+The BaseWidget component serves as a foundational pattern providing consistent styling, layout structure, and interaction patterns. It enables rapid widget development through props-based customization while maintaining design system consistency.
 ### Component Hierarchy
 DashboardScreen
 ├── DashboardHeader
@@ -70,11 +82,13 @@ DashboardScreen
  ---
 ## Performance Optimizations Applied
 ### StyleSheet Optimization
-[List specific StyleSheet optimizations]
-- Used StyleSheet.create() for all styles
-- Avoided inline styles where possible
-- Pre-calculated style objects for variants
-- [Other optimizations]
+-Used StyleSheet.create() for all style definitions
+
+-Avoided inline styles to prevent object recreation
+
+-Pre-calculated style objects for variant states
+
+-Minimal style duplication through theme system
 ### Render Optimization
 [Document re-render prevention strategies]
 - Memoization of expensive calculations
