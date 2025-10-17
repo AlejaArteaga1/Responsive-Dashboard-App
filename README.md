@@ -73,19 +73,33 @@ src/
 See `/screenshots` folder for app images on different devices.
 ## Known Issues
 -React-native-vector-icons may require reinstallation or manual linking in some development environments
+
 -Orientation detection on physical Android devices may be less accurate than in simulators
+
 -Pull-to-refresh may occasionally trigger unexpectedly during rapid scrolling
+
 -The responsive grid may experience brief layout shifts during rapid orientation changes
+
 -Notification badge positioning may need adjustment on certain screen densities
+
 -Some shadow effects may appear differently across iOS and Android versions
 ## Future Enhancements
 -Implement dark mode theme switching functionality
+
 -Add drag-and-drop widget reorganization capability
+
 -Integrate real-time data charts and graphs for statistics
+
 -Add widget customization options (show/hide, resize)
+
 -Implement offline data persistence using AsyncStorage
+
 -Add search and filtering functionality for dashboard data
+
 -Create user profile management and settings screen
+
 -Add push notification support for important updates
+
 -Implement biometric authentication for secure access
+
 -Add data export functionality (PDF reports, CSV export)
