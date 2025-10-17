@@ -14,6 +14,7 @@ The breakpoint strategy follows mobile-first design principles with carefully se
 - Large phones: 400-500px - 2 column layout
 - Tablets: 500-768px - 3 column layout
 - Large tablets: > 768px - 4 column layout
+  
 **Design Decisions:**
 These breakpoints were chosen based on statistical analysis of common device resolutions. Small phones target devices like iPhone SE, medium phones cover standard Android devices, large phones accommodate phablets, and tablet breakpoints align with iPad Mini and standard iPad dimensions. This approach ensures content remains readable and properly structured across all device categories.
 ### Grid System Implementation
