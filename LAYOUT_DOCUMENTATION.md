@@ -6,8 +6,10 @@
 - **Lab:** CPAN 213 - Lab 4
 ---
 ## Responsive Design Implementation
+
 ### Breakpoint Strategy
 The breakpoint strategy follows mobile-first design principles with carefully selected thresholds based on common device screen sizes. These breakpoints ensure optimal layout across the diverse mobile device ecosystem.
+
 **Breakpoints Defined:**
 - Small phones: < 350px width - 1 column layout
 - Medium phones: 350-400px - 2 column layout
@@ -17,8 +19,10 @@ The breakpoint strategy follows mobile-first design principles with carefully se
   
 **Design Decisions:**
 These breakpoints were chosen based on statistical analysis of common device resolutions. Small phones target devices like iPhone SE, medium phones cover standard Android devices, large phones accommodate phablets, and tablet breakpoints align with iPad Mini and standard iPad dimensions. This approach ensures content remains readable and properly structured across all device categories.
+
 ### Grid System Implementation
 The responsive grid system dynamically adjusts column counts based on device type and orientation, providing optimal content density for each screen size.
+
 **Column Calculation Logic:**
 The getGridColumns() function analyzes screen width against defined breakpoints and returns appropriate column counts:
 
@@ -29,27 +33,35 @@ The getGridColumns() function analyzes screen width against defined breakpoints 
 -Tablets: Three columns to utilize additional screen space
 
 -Large tablets: Four columns for maximum content visibility
+
 **Orientation Handling:**
 Orientation changes trigger the updateScreenData() function which recalculates screen dimensions and propagates changes through the component tree. The listenForOrientationChange() method ensures real-time layout updates.
+
 ### Typography Scaling
 The typography system uses proportional scaling to maintain readability across different screen densities.
+
 **Scaling Formula:**
 The rf() function calculates: size * (screenWidth / 320) with platform-specific adjustments (-2px on Android)
+
 **Typography Scale:**
 - h1: 28pt
 - h2: 24pt
 - h3: 20pt
 - body: 16pt
 - caption: 14pt
+- 
 ### Spacing System
 The spacing system uses percentage-based calculations for consistent visual rhythm across devices.
+
 **Spacing Values:**
 - xs: 1% of screen width
 - sm: 2% of screen width
 - md: 4% of screen width
 - lg: 6% of screen width
 - xl: 8% of screen width
+- 
 ## Platform-Specific Implementations
+
 ### iOS Specific Styling
 -Shadow implementation using shadowColor, shadowOffset, shadowOpacity, shadowRadius
 
@@ -58,6 +70,7 @@ The spacing system uses percentage-based calculations for consistent visual rhyt
 -Status bar height adjustments for notch devices
 
 -Native iOS navigation patterns and interaction feedback
+
 ### Android Specific Styling
 -Elevation-based shadows for Material Design compliance
 
@@ -68,8 +81,10 @@ The spacing system uses percentage-based calculations for consistent visual rhyt
 -Ripple effect patterns for touch interactions
 
 ## Component Architecture
+
 ### Widget System Design
 The BaseWidget component serves as a foundational pattern providing consistent styling, layout structure, and interaction patterns. It enables rapid widget development through props-based customization while maintaining design system consistency.
+
 ### Component Hierarchy
 DashboardScreen
 ├── DashboardHeader
@@ -82,6 +97,7 @@ DashboardScreen
  └── Quick Actions (4x)
  ---
 ## Performance Optimizations Applied
+
 ### StyleSheet Optimization
 -Used StyleSheet.create() for all style definitions
 
@@ -90,6 +106,7 @@ DashboardScreen
 -Pre-calculated style objects for variant states
 
 -Minimal style duplication through theme system
+
 ### Render Optimization
 -Memoization of expensive responsive calculations
 
@@ -98,6 +115,7 @@ DashboardScreen
 -Conditional rendering to prevent unnecessary mounts
 
 -Efficient state update batching
+
 ### Performance Measurements
 [Include actual FPS measurements]
 - Scrolling: 60 FPS
@@ -106,19 +124,23 @@ DashboardScreen
 - Pull-to-refresh: 58-60 FPS
 ---
 ## Challenges Encountered and Solutions
+
 ### Challenge 1: Vector Icons Rendering
 **Problem:** Icons displayed as red X boxes instead of proper glyphs
 **Solution:** Reinstalled react-native-vector-icons and verified native linking
 **Learning:** Importance of proper native dependency management
+
 ### Challenge 2: Orientation Detection Reliability
 **Problem:** Inconsistent orientation detection on physical devices
 **Solution:** Implemented hybrid approach using Dimensions API and orientation-locker
 **Learning:** Redundant systems improve reliability in mobile environments
+
 ### Challenge 3: Performance During Layout Changes
 **Problem:** Layout shifts caused performance drops during orientation changes
 **Solution:** Implemented memoization and optimized re-render patterns
 **Learning:** Strategic optimization prevents user experience degradation
 ---
+
 ## Testing Results
 ### Device Testing Matrix
 | Device Type | Screen Size | Orientation | Columns | Result |
